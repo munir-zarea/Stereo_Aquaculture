@@ -2,8 +2,8 @@
 This project implements a stereo video recording and processing system using a stereo camera integrated with ROS 2. The goal is to reliably capture synchronized left and right video streams and store them in a reproducible format. Please note that this process is done using an MMLove Stereo USB camera. Other cameras still need to be tested to ensure the code is modular.
 
 
-1) Prerequisites
-## Core viewer/tools. Enter into terminal
+## 1) Prerequisites
+Core viewer/tools. Enter into terminal
 ```bash
 sudo apt update
 sudo apt install -y ros-${ROS_DISTRO}-v4l2-camera \
