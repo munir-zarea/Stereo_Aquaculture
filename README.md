@@ -21,8 +21,7 @@ Note the SBS node for your camera (e.g., /dev/video4). It should be something li
 
 ## 3) Configure the package
 
-Edit the config file (sbs_camera.yaml)
-Set your device path (use /dev/v4l/by-id/...-index0 if available):
+Edit the config file (sbs_camera.yaml). Set your device path (use /dev/v4l/by-id/...-index0 if available):
 
 ```bash
 sbs_camera:
