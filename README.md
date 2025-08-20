@@ -4,11 +4,13 @@ This project implements a stereo video recording and processing system using a s
 
 Prerequisites
 # Core viewer/tools. Enter into terminal
+```bash
 sudo apt update
 sudo apt install -y ros-${ROS_DISTRO}-v4l2-camera \
                     ros-${ROS_DISTRO}-rqt-image-view \
                     ros-${ROS_DISTRO}-image-view \
                     ffmpeg
+''bash
 
 1) Identify your camera device
 v4l2-ctl --list-devices
