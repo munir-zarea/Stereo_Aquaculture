@@ -1,16 +1,16 @@
-## Stereo_Aquaculture
+# Stereo_Aquaculture
 This project implements a stereo video recording and processing system using a stereo camera integrated with ROS 2. The goal is to reliably capture synchronized left and right video streams and store them in a reproducible format.
 
 
 Prerequisites
-# Core viewer/tools. Enter into terminal
+## Core viewer/tools. Enter into terminal
 ```bash
 sudo apt update
 sudo apt install -y ros-${ROS_DISTRO}-v4l2-camera \
                     ros-${ROS_DISTRO}-rqt-image-view \
                     ros-${ROS_DISTRO}-image-view \
                     ffmpeg
-''bash
+'''bash
 
 1) Identify your camera device
 v4l2-ctl --list-devices
