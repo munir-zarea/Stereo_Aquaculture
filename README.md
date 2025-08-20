@@ -10,6 +10,7 @@ sudo apt install -y ros-${ROS_DISTRO}-v4l2-camera \
                     ros-${ROS_DISTRO}-rqt-image-view \
                     ros-${ROS_DISTRO}-image-view \
                     ffmpeg
+```
 
 1) Identify your camera device
 v4l2-ctl --list-devices
