@@ -1,0 +1,7 @@
+sbs_camera:
+  ros__parameters:
+    video_device: "/dev/video4"   # your SBS node (to find, type 'v4l2-ctl --list-devices' in terminal)
+    image_size: [640, 480]        # Start with a small number and increase later
+    time_per_frame: [1, 30]       # 30 fps
+    pixel_format: "YUYV"          # or "MJPG" if supported at your target FPS
+    camera_frame_id: "stereo_sbs_frame"
