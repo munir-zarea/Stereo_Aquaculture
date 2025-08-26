@@ -39,6 +39,7 @@ sudo apt install -y ros-${ROS_DISTRO}-v4l2-camera \
                     ros-${ROS_DISTRO}-image-view \
                     ffmpeg
 ```
+Rmember to replace the '${ROS_DISTRO}' with your ros2 distro.
 
 f) Now, go into edit each individual file created to look like the ones listed in this repository. Please contact zaream@hawaii.edu if any questions.
 
