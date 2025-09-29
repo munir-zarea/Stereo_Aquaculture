@@ -4,13 +4,13 @@ This project implements a stereo video recording and processing system using a s
 
 
 ## 1) Prerequisites
-a) Clone repository:
+a) Create Dedicated workspace:
 ```bash
 cd
 mkdir -p ~/stereo_ws/src
 cd ~/stereo_ws/src
 ```
-Now you will be in the a dedicated workspace for the project.
+Now you will be in the a dedicated workspace for the project on your machine.
 
 b) Install dependencies:
 Depending on the distro, your installation packages might look different. This one is Jazzy.
