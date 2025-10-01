@@ -39,7 +39,16 @@ sudo apt install -y ros-${ROS_DISTRO}-v4l2-camera \
                     ros-${ROS_DISTRO}-image-view \
                     ffmpeg
 ```
-Rmember to replace the '${ROS_DISTRO}' with your ros2 distro.
+Remember to replace the '${ROS_DISTRO}' with your ros2 distro.
+
+Example
+```bash
+sudo apt update
+sudo apt install -y ros-jazzy-v4l2-camera \
+                    ros-jazzy-rqt-image-view \
+                    ros-jazzy-image-view \
+                    ffmpeg
+```
 
 f) Now, go into edit each individual file created to look like the ones listed in this repository. Please contact zaream@hawaii.edu if any questions.
 
@@ -52,16 +61,16 @@ Note the SBS node for your camera (e.g., /dev/video4). It should be something li
 
 ## 3) Configure the package
 
-Edit the config file (sbs_camera.yaml). Set your device path (use /dev/v4l/by-id/...-index0 if available):
+Edit the config file (sbs_camera.yaml). Set your device path (use /dev/v4l/by-id/...-index0 if available as this reduced chance of 'drops'):
 
 ```bash
 sbs_camera:
   ros__parameters:
-    video_device: "/dev/video4" # Change this depending on you camera input
-    image_size: [640, 480]     # Increase later
-    time_per_frame: [1, 30]    # 30 fps
+    video_device: "/dev/v4l/by-id/usb-3D_USB_Camera_3D_USB_Camera_01.00.00-video-index0"
+    image_size: [1280, 480]     # Increase later
+    time_per_frame: [1, 30]    # 15 fps
     pixel_format: "YUYV"       # or "MJPG" if your camera supports it
-    camera_frame_id: "stereo_sbs_frame"
+    camera_frame_id: "bgr8"
 ```
 
 ## 4) Build & source workspace
@@ -86,24 +95,33 @@ ros2 topic hz /stereo/image_raw
 
 GUI viewer (run this in another terminal as the launch file is running):
 ```bash
-ros2 run rqt_image_view rqt_image_view
+rqt
 ```
 
 Select '/stereo/image_raw' from the dropdown menu.
 
+If you don't have 'rqt' installed:
+```bash
+sudo apt update
+sudo apt install ros-jazzy-rqt
+```
+
 ## 7) Record to a bag (recommended settings)
 
-Open a third terminal and run:
+Open a third terminal and paste this in:
 ```bash
-ros2 bag record -o ~/stereo_ws/bags/sbs_run \
-  /stereo/image_raw \
-  --storage mcap --compression-mode file --compression-format zstd \
-  --max-bag-size 4096
+ros2 bag record -o ~/bags/run01 /stereo/image_raw /stereo/camera_info
 ```
+Stop with Ctrl+C when finished recording.
 
-Stop with Ctrl+C and inspect:
+## 8) View the bag
+
+Stop the SBS launch stream in the first terminal you used with Ctrl+C. This will stop the feed so you can play the video back.
+
+In the same terminal you recorded the bag, paste in:
 ```bash
-ros2 bag info ~/stereo_ws/bags/sbs_run
+ros2 bag play ~/bags/run01
 ```
+With 'rqt' still open, you should see the recorded video play.
 
 
